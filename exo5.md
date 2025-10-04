@@ -1,14 +1,69 @@
-# Correction - Exercice 5 : Consolidation et Nettoyage (rmdir, {} syntax)
 
-| Tâche | Commandes Exécutées | Résultat / Vérification | Remarques |
-| :--- | :--- | :--- | :--- |
-| Créer arborescence complète | `mkdir -p projet_scolaire/{maths,sciences}` | `ls projet_scolaire` -> maths  sciences | **Clé :** La syntaxe `{item1,item2}` permet la création simultanée de plusieurs sous-chemins. |
-| Remplir equations.txt | `echo "x^2 + y^2 = z^2" > projet_scolaire/maths/equations.txt` | - | Ajout de contenu. |
-| Remplir experiences.txt | `echo "eau + huile = séparation" > projet_scolaire/sciences/experiences.txt` | - | Ajout de contenu. |
-| Renommer equations.txt | `mv projet_scolaire/maths/equations.txt projet_scolaire/maths/geometrie.txt` | `ls projet_scolaire/maths` -> geometrie.txt | Renommage avec `mv`. |
-| Déplacer experiences.txt | `mv projet_scolaire/sciences/experiences.txt projet_scolaire/maths/` | `ls projet_scolaire/sciences` -> (vide) | Déplacement vers un autre dossier. |
-| Supprimer sciences | `rmdir projet_scolaire/sciences` | `ls projet_scolaire` -> maths | **Clé :** `rmdir` est utilisé pour supprimer un répertoire s'il est **vide**. |
+# mkdir -p actualites/politique/elections && touch actualites/politique/elections/candidats.txt && echo -e "Issoufou\nHama\nSeini" > actualites/politique/elections/candidats.txt && cd actualites/politique/elections/.. && cd .. && mkdir buzz 
 
-**Difficulté Rencontrée :** Bien distinguer l'utilisation de `rmdir` (dossier vide) et `rm -r` (dossier non vide). J'ai utilisé la syntaxe `{}` pour créer l'arborescence en une seule commande.
+Explication détaillée de la commande
+Voici le décryptage de chaque partie de la commande :
 
-![](exo.5)
+
+
+mkdir -p actualites/politique/elections && touch actualites/politique/elections/candidats.txt && echo -e "Issoufou\nHama\nSeini" > actualites/politique/elections/candidats.txt && cd actualites/politique/elections/.. && cd .. && mkdir buzz
+Explication détaillée de la commande
+Voici le décryptage de chaque partie de la commande :
+
+mkdir -p actualites/politique/elections :
+
+mkdir crée des répertoires (dossiers).
+
+L'option -p permet de créer le répertoire final (elections) ainsi que tous les répertoires parents nécessaires (actualites et politique) s'ils n'existent pas encore.
+
+&& :
+
+Cet opérateur logique permet d'enchaîner les commandes : la commande suivante ne s'exécute que si la précédente a réussi.
+
+touch actualites/politique/elections/candidats.txt :
+
+touch crée le fichier vide candidats.txt à l'intérieur du dossier elections.
+
+&& echo -e "Issoufou\nHama\nSeini" > actualites/politique/elections/candidats.txt :
+
+echo -e "Issoufou\nHama\nSeini" affiche les noms avec des sauts de ligne (\n grâce à l'option -e).
+
+Le symbole > redirige cette sortie et écrase le contenu du fichier candidats.txt pour y mettre les noms.
+
+&& cd actualites/politique/elections/.. && cd .. :
+
+cd change de répertoire.
+
+Chaque .. représente le répertoire parent. Pour remonter de deux niveaux (de elections à actualites), on utilise deux commandes cd .. successives (techniquement, on pourrait utiliser cd actualites, mais l'énoncé demandait de remonter deux niveaux).
+
+&& mkdir buzz :
+
+Une fois revenu dans le dossier actualites, cette commande crée le nouveau dossier buzz.
+
+Vérification (Optionnel)
+Pour vérifier si tout s'est bien passé, vous pouvez utiliser :
+
+Bash
+
+tree actualites
+cat actualites/politique/elections/candidats.txt
+Si l'outil tree est installé, la première commande affichera l'arborescence :
+
+actualites
+├── buzz
+└── politique
+    └── elections
+        └── candidats.txt
+Et la deuxième affichera le contenu du fichier
+
+Quelque Diffilcultés est que la maitrise des different commande vraiment il faut bien les maitriser  pour bien appliquer 
+
+
+
+
+
+
+
+
+
+
