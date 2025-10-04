@@ -58,7 +58,7 @@ Et la deuxième affichera le contenu du fichier
 
 Quelque Diffilcultés est que la maitrise des different commande vraiment il faut bien les maitriser  pour bien appliquer 
 
-
+![](exo5.png)
 
 
 
