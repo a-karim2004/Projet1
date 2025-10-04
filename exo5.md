@@ -1,62 +1,47 @@
 
-# mkdir -p actualites/politique/elections && touch actualites/politique/elections/candidats.txt && echo -e "Issoufou\nHama\nSeini" > actualites/politique/elections/candidats.txt && cd actualites/politique/elections/.. && cd .. && mkdir buzz 
+# mkdir -p projet_scolaire/maths projet_scolaire/sciences && echo "x^2 + y^2 = z^2" > projet_scolaire/maths/equations.txt && echo "eau + huile = séparation" > projet_scolaire/sciences/experiences.txt && mv projet_scolaire/maths/equations.txt projet_scolaire/maths/geometrie.txt && mv projet_scolaire/sciences/experiences.txt projet_scolaire/maths/ && rmdir projet_scolaire/sciences
+1. mkdir -p projet_scolaire/maths projet_scolaire/sciences
+mkdir = créer un dossier
 
-Explication détaillée de la commande
-Voici le décryptage de chaque partie de la commande :
+-p = crée les dossiers parents si besoin (ici projet_scolaire)
+
+On crée en une seule fois les deux sous-dossiers maths et sciences.
+
+2. &&
+C’est un séparateur logique :
+
+La commande suivante s’exécute seulement si la précédente a réussi.
+
+Ça évite de continuer si une étape échoue.
+
+3. echo "x^2 + y^2 = z^2" > projet_scolaire/maths/equations.txt
+echo affiche du texte.
+
+> redirige ce texte vers un fichier (ici, il crée ou remplace le fichier).
+
+Résultat : le fichier equations.txt est créé dans maths avec le contenu demandé.
+
+4. echo "eau + huile = séparation" > projet_scolaire/sciences/experiences.txt
+Même logique que l’étape précédente.
+
+On crée experiences.txt dans sciences avec le contenu demandé.
+
+5. mv projet_scolaire/maths/equations.txt projet_scolaire/maths/geometrie.txt
+mv = move (déplacer ou renommer).
+
+Ici, on renomme simplement equations.txt en geometrie.txt dans le même dossier.
+
+6. mv projet_scolaire/sciences/experiences.txt projet_scolaire/maths/
+On déplace experiences.txt depuis sciences vers maths.
+
+Après cette étape, sciences est vide.
+
+7. rmdir projet_scolaire/sciences
+rmdir supprime un dossier s’il est vide.
+
+Comme on a déplacé experiences.txt, sciences est maintenant vide → il peut être supprimé.
 
 
-
-mkdir -p actualites/politique/elections && touch actualites/politique/elections/candidats.txt && echo -e "Issoufou\nHama\nSeini" > actualites/politique/elections/candidats.txt && cd actualites/politique/elections/.. && cd .. && mkdir buzz
-Explication détaillée de la commande
-Voici le décryptage de chaque partie de la commande :
-
-mkdir -p actualites/politique/elections :
-
-mkdir crée des répertoires (dossiers).
-
-L'option -p permet de créer le répertoire final (elections) ainsi que tous les répertoires parents nécessaires (actualites et politique) s'ils n'existent pas encore.
-
-&& :
-
-Cet opérateur logique permet d'enchaîner les commandes : la commande suivante ne s'exécute que si la précédente a réussi.
-
-touch actualites/politique/elections/candidats.txt :
-
-touch crée le fichier vide candidats.txt à l'intérieur du dossier elections.
-
-&& echo -e "Issoufou\nHama\nSeini" > actualites/politique/elections/candidats.txt :
-
-echo -e "Issoufou\nHama\nSeini" affiche les noms avec des sauts de ligne (\n grâce à l'option -e).
-
-Le symbole > redirige cette sortie et écrase le contenu du fichier candidats.txt pour y mettre les noms.
-
-&& cd actualites/politique/elections/.. && cd .. :
-
-cd change de répertoire.
-
-Chaque .. représente le répertoire parent. Pour remonter de deux niveaux (de elections à actualites), on utilise deux commandes cd .. successives (techniquement, on pourrait utiliser cd actualites, mais l'énoncé demandait de remonter deux niveaux).
-
-&& mkdir buzz :
-
-Une fois revenu dans le dossier actualites, cette commande crée le nouveau dossier buzz.
-
-Vérification (Optionnel)
-Pour vérifier si tout s'est bien passé, vous pouvez utiliser :
-
-Bash
-
-tree actualites
-cat actualites/politique/elections/candidats.txt
-Si l'outil tree est installé, la première commande affichera l'arborescence :
-
-actualites
-├── buzz
-└── politique
-    └── elections
-        └── candidats.txt
-Et la deuxième affichera le contenu du fichier
-
-Quelque Diffilcultés est que la maitrise des different commande vraiment il faut bien les maitriser  pour bien appliquer 
 
 ![](exo5.png)
 
